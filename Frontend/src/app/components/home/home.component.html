@@ -1,0 +1,102 @@
+<app-navbar [nItem]="nItems"></app-navbar>
+<app-slider></app-slider>
+
+<!-- 
+<div class="d-flex justify-content-center flex-wrap">
+  <div class="text-center m-2" *ngFor="let category of categories" routerLink="/products/{{category._id}}">
+    <img [src]="category.icon" class="category " width="150" height="150">
+    <h5 class="proName mt-3">{{category.name}}</h5>
+  </div>
+</div> -->
+
+
+<app-features-bar></app-features-bar>
+
+<div class="container-fluid cg p-5">
+
+  <h1 class="mt-5 header d-inline"> Our Products </h1>
+  <input type="text" class="form-control w-50 d-inline mx-5" placeholder="Search" [(ngModel)]="term" />
+  <hr>
+  <div class="row justify-content-center">
+
+    <div class=" col-lg-3  text-center  position-relative" *ngFor="let product of products|filter:term">
+      <div class="product-item   mb-4">
+        <div class="product-img position-relative overflow-hidden">
+          <img class="w-100 img_height" [src]="product.image" alt="">
+          <div class="product-action" (click)="addToCart(product)">
+            <a class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></a>
+
+            <a class="btn btn-outline-dark btn-square" routerLink="/product/{{product._id}}">
+              <i class="fa fa-shopping-cart"></i></a>
+          </div>
+        </div>
+        <div class="text-center colorclass py-4">
+          <h6>{{product?.title}}</h6>
+          <div class="d-flex align-items-center justify-content-center mt-2">
+            <h5>${{product?.price}}</h5>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="product?.rate==1">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{product?.rate}})</i>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="product?.rate==2">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{product?.rate}})</i>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="product?.rate==3">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{product?.rate}})</i>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="product?.rate==4">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{product?.rate}})</i>
+          </div>
+          <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="product?.rate==5">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i>({{product?.rate}})</i>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <!-- <img [src]="product.image" class="productPic" width="300px">
+      <h5 class="proName mt-3">{{product.title}}</h5>
+      <p class="price">{{product.price}} L.E</p>
+      <div class="d-flex flex-wrap justify-content-center mb-4">
+        <button class="btn btn-solid rounded-pill  mx-1" (click)="addToCart(product)">Add to Cart </button>
+        <button class="btn btn-reverse rounded-pill  mx-1 " routerLink="/product/{{product._id}}">View Details </button>
+      </div>
+      <span class="new p-1">New</span> -->
+    </div>
+
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>

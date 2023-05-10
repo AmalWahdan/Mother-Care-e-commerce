@@ -1,0 +1,87 @@
+<!-- <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+    <div class="product-item bg-light mb-4">
+        <div class="product-img position-relative overflow-hidden">
+            <img class="img_height img-fluid w-100" src="img/product-c6.webp" alt="">
+            <div class="product-action">
+                <a class="btn btn-outline-dark btn-square" onclick="add_TO_Card()"><i
+                        class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
+        <div class="text-center py-4">
+            <h6>Lace-up Front High Top Canvas Shoes</h6>
+            <div class="d-flex align-items-center justify-content-center mt-2">
+                <h5>$19.00</h5>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mb-1">
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i class="fa fa-star text-warning mr-1"></i>
+                <i>(100+)</i>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<div class="product-item  mb-4">
+    <div class="product-img position-relative overflow-hidden">
+        <img class="w-100 img_height" [src]="childproductsofcategory.image" alt="">
+        <div class="product-action" (click)="addToCart(childproductsofcategory)">
+            <a class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></a>
+
+            <a class="btn btn-outline-dark btn-square" routerLink="/product/{{childproductsofcategory._id}}">
+                <i class="fa fa-shopping-cart"></i></a>
+        </div>
+    </div>
+    <div class="text-center colorclass py-4">
+        <h6>{{childproductsofcategory?.title}}</h6>
+        <div class="d-flex align-items-center justify-content-center mt-2">
+            <h5>${{childproductsofcategory?.price}}</h5>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="childproductsofcategory?.rate==1">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{childproductsofcategory?.rate}})</i>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="childproductsofcategory?.rate==2">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{childproductsofcategory?.rate}})</i>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="childproductsofcategory?.rate==3">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{childproductsofcategory?.rate}})</i>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="childproductsofcategory?.rate==4">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="far fa-star text-warning mr-1"></i>
+            <i>({{childproductsofcategory?.rate}})</i>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-1" *ngIf="childproductsofcategory?.rate==5">
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i class="fa fa-star text-warning mr-1"></i>
+            <i>({{childproductsofcategory?.rate}})</i>
+        </div>
+
+    </div>
+</div>

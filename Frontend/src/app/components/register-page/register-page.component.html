@@ -1,0 +1,149 @@
+<app-navbar></app-navbar>
+<section class="p-5 mt-5" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                <p class="text-center  h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                <form [formGroup]="userForm" (ngSubmit)="login($event)" class="mx-1 mx-md-4">
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-user fa-lg me-3 fa-fw text-warning mt-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="formsExample1c">Your Name</label>
+                                            <input type="text" id="formsExample1c" placeholder="Enter Your Fullname"
+                                                class="form-control" formControlName="fullname" />
+
+                                            <ng-container *ngIf="getfullname.touched">
+                                                <div *ngIf="getfullname.hasError('required')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    fullname is Required
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw text-warning mt-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="formvExample3c">Email</label>
+                                            <input type="email" id="formvExample3c" class="form-control"
+                                                placeholder="Enter Your e-mail" formControlName="email" />
+                                            <ng-container *ngIf="getemail.touched">
+                                                <div *ngIf="getemail.hasError('required')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    email is Required
+                                                </div>
+                                            </ng-container>
+                                            <ng-container *ngIf="getemail.touched">
+                                                <div *ngIf="getemail.hasError('email')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    email isnot valid
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4 ">
+
+                                        <i class="fa-sharp fa-solid fa-user fa-lg me-3 fa-fw text-warning mt-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="formoExample1c">Username</label>
+                                            <input type="text" id="formoExample1c" placeholder="Enter Your username"
+                                                class="form-control" formControlName="username" />
+
+                                            <ng-container *ngIf="getusername.touched">
+                                                <div *ngIf="getusername.hasError('required')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    username is Required
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-phone fa-lg me-3 fa-fw text-warning  mt-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="formqExample1c">Phone</label>
+                                            <input type="text" id="formqExample1c" placeholder="+20"
+                                                class="form-control" formControlName="phone" />
+                                            <ng-container *ngIf="getphone.touched">
+                                                <div *ngIf="getphone.hasError('required')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    Phone is Required
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="form-label" for="firstName">
+                                            <i class="fas fa-location fa-lg me-3 fa-fw text-warning mt-4"></i>
+                                            Address</label>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="firstName"
+                                                    class="form-control form-control-lg mx-5 registeraddress"
+                                                    formControlName="city" placeholder="City" />
+                                                <ng-container *ngIf="getecity.touched">
+                                                    <div *ngIf="getecity.hasError('required')" id="emailHelp"
+                                                        class="form-text text-danger">
+                                                        city is Required
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4 ">
+                                            <div class="form-outline">
+                                                <input type="text" id="lastName"
+                                                    class="form-control form-control-lg mx-3 registeraddress"
+                                                    formControlName="street" placeholder="Street" />
+                                                <ng-container *ngIf="getstreet.touched">
+                                                    <div *ngIf="getstreet.hasError('required')" id="emailHelp"
+                                                        class="form-text text-danger">
+                                                        street is Required
+                                                    </div>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-key fa-lg me-3 fa-fw text-warning mt-4"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="formpExample4cd">password</label>
+                                            <input type="password" id="formpExample4cd" class="form-control"
+                                                formControlName="password" />
+                                            <ng-container *ngIf="getpassword.touched">
+                                                <div *ngIf="getpassword.hasError('required')" id="emailHelp"
+                                                    class="form-text text-danger">
+                                                    password is Required
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="h6 text-danger ms-5 " *ngIf="flag"> Try again with valid data </div>
+                                    <button type="button" class="btn btn-warning btn-lg form-control"
+                                        (click)="adduser()">Register</button>
+
+                                    <div class="d-flex justify-content-center mx-4 my-3 mb-lg-4">
+
+
+                                        <button class="btn btn-warning btn-lg " routerLink="/login">Sign in
+                                        </button>
+
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                    class="img-fluid" alt="Sample image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
